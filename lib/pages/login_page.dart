@@ -91,10 +91,14 @@ class _LoginPageState extends State<LoginPage> {
                           showSnackBar(context ,  'Wrong password provided for that user..');
 
                         }
+                        else 
+                        {
+                          showSnackBar(context ,  e.code);
+                        }
                       }
-                      catch (error) 
+                      catch (e) 
                       {
-                        showSnackBar(context ,  error.toString());
+                        showSnackBar(context ,  e.toString());
                       }
                       isLoading = false;
                       setState(() {});
