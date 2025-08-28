@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:scholar_chat_setup/constats.dart';
+import 'package:scholar_chat_setup/constants.dart';
 // import 'package:scholar_chat_setup/pages/register_page.dart';
 import 'package:scholar_chat_setup/widgets/custom_buttom.dart';
 import 'package:scholar_chat_setup/widgets/custom_text_field.dart';
@@ -81,7 +81,8 @@ class _LoginPageState extends State<LoginPage> {
                       try 
                       {
                         await loginUser();
-                        showSnackBar(context ,  'success.');
+                        // showSnackBar(context ,  'success.');
+                        Navigator.pushNamed(context, 'ChatPage' , arguments: email);
 
                       } 
                       on FirebaseAuthException catch (e) {

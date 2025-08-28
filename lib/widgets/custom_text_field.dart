@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField
           (
+            obscureText: hintText == 'Password' ? true : false,
             validator: (data)
             {
               if(data == null || data.isEmpty)

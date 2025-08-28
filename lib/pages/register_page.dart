@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:scholar_chat_setup/constats.dart';
+import 'package:scholar_chat_setup/constants.dart';
 // import 'package:scholar_chat_setup/pages/login_page.dart';
 import 'package:scholar_chat_setup/widgets/custom_buttom.dart';
 import 'package:scholar_chat_setup/widgets/custom_text_field.dart';
@@ -103,11 +103,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       try 
                       {
                         await registerUser();
+                        Navigator.pushNamed(context, 'ChatPage' , arguments: email);
                       } 
                       on FirebaseAuthException catch (e) 
                       {
                         if (e.code == 'email-already-in-use') {
-                          showSnackBar(context ,  'This email is already registered.');
+                          Navigator.pushNamed(context, 'ChatPage' , arguments: email);
                         // Show a dialog or redirect user to Login page
                         } 
                         else if (e.code == 'weak-password') {
